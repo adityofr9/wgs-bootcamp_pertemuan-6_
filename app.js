@@ -32,6 +32,8 @@ yargs.command({
         //     email:argv.email,
         //     mobile:argv.mobile,
         // };
+
+        //code diatas diganti dengan code dibawah ini
         contacts.saveContact(argv.name,argv.email,argv.mobile);
     },
     // console.log(contact);
