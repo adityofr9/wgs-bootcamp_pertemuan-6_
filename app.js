@@ -1,10 +1,13 @@
+//NPM yargs
 const yargs = require("yargs");
+//Import semua fungsi dari contact.js
+const contacts = require('./contact.js');
 
 //console.log(yargs.argv);
 
 yargs.command({
     command: 'add',
-    describe: 'add new contact',
+    describe: 'add new contact',  //Untuk menjelaskan describe untuk apa fungsi ini pada saat command console "node app add --help"
     builder:{
         name: {
             describe: 'Contact Name',
@@ -22,16 +25,16 @@ yargs.command({
             type: 'string',
         },
     },
-    
-    handler(argv){
-        const contact = {
-            name:argv.name,
-            email:argv.email,
-            mobile:argv.mobile,
-        };
 
-        console.log(contact);
+    handler(argv){
+        // const contact = {
+        //     name:argv.name,
+        //     email:argv.email,
+        //     mobile:argv.mobile,
+        // };
+        contacts.saveContact(argv.name,argv.email,argv.mobile);
     },
+    // console.log(contact);
 });
 
 yargs.parse();
@@ -42,7 +45,7 @@ yargs.parse();
 // const fs = require('fs');
 
 //Import semua fungsi dari contact.js
-//const contact = require('./contact.js');
+//const contacts = require('./contact.js');
 
 //const main = async () => {
     // const name = await contact.questions('What is your name? ');

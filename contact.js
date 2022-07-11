@@ -33,8 +33,8 @@ const questions = (ask) => {
 };
 
 
-const saveContact = (name, mobile) => {
-    const contact = {name, mobile};
+const saveContact = (name, email, mobile) => {
+    const contact = {name, email, mobile};
     const file = fs.readFileSync('data/contacts.json', 'utf8');
     const contacts = JSON.parse(file);
     contacts.push(contact);
@@ -44,4 +44,4 @@ const saveContact = (name, mobile) => {
 };
 
 
-module.exports = {question, saveContact};
+module.exports = {questions, saveContact};
